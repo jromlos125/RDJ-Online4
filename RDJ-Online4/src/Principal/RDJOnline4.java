@@ -5,8 +5,7 @@
  */
 package Principal;
 
-import static ArraysCC.CadenaCaracteres.*;
-import java.io.IOException;
+import static Utilidades.ValidarCadenas.comprobarMatriculaAutomovil;
 
 /**
  *
@@ -19,6 +18,9 @@ public class RDJOnline4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        char matricula[] = {'9', '1', '8', '2', 'A', 'R', 'Y'};
+        comprobarMatriculaAutomovil(matricula);
 
     }
 

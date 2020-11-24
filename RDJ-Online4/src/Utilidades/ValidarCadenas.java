@@ -24,33 +24,22 @@ public class ValidarCadenas {
 
         } else {
 
-            for (int i = 0; i < 4; i++) {
+            for (int j = 4; j < 7; j++) {
 
-                if (matricula[i] > 9 || matricula[i] < 0) {
+                if (matricula[j] == 'A' || matricula[j] == 'E' || matricula[j] == 'I' || matricula[j] == 'O' || matricula[j] == 'U' || matricula[j] == 'Ñ') {
 
                     resultado = false;
-
-                } else {
-
-                    for (int j = 4; j < 7; j++) {
-
-                        if (matricula[j] == 'A' || matricula[j] == 'E' || matricula[j] == 'I' || matricula[j] == 'O' || matricula[j] == 'U' || matricula[j] == 'Ñ') {
-
-                            resultado = false;
-
-                        }
 
                     }
 
                 }
-
-            }
-
+            
         }
 
         return resultado;
 
     }
+
 
     public static boolean comprobarMatriculaCiclomotor(char[] matricula) {
 
@@ -68,23 +57,11 @@ public class ValidarCadenas {
 
             } else {
 
-                for (int i = 1; i < 5; i++) {
+                for (int i = 5; i < 8; i++) {
 
-                    if (matricula[i] > 9 || matricula[i] < 0) {
+                    if (matricula[i] == 'A' || matricula[i] == 'E' || matricula[i] == 'I' || matricula[i] == 'O' || matricula[i] == 'U' || matricula[i] == 'Ñ') {
 
-                        resultado = false;
-
-                    } else {
-
-                        for (int j = 5; j < 8; j++) {
-
-                            if (matricula[j] == 'A' || matricula[j] == 'E' || matricula[j] == 'I' || matricula[j] == 'O' || matricula[j] == 'U' || matricula[j] == 'Ñ') {
-
-                                resultado = false;
-
-                            }
-
-                        }
+                       resultado = false;
 
                     }
 

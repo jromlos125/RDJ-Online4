@@ -5,7 +5,7 @@
  */
 package ArraysCC;
 
-import Utilidades.IO_ES;
+import static Utilidades.IO_ES.*;
 
 /**
  * Se tratan de unos métodos, los cuales son: Un método que genera un menú para
@@ -35,15 +35,12 @@ public class Arrays {
             System.out.println("4. Crear un array de valores aleatorios entre 0 y 100. Mostrando su contenido e indicando cuantos son mayores de 50 y cuantos menores.");
             System.out.println("0. Salir del programa.");
 
-            opcion = IO_ES.leerInteger("Selecciona una de las opciones del menú anterior: ");
+            opcion = leerInteger("Selecciona una de las opciones del menú anterior: ", 0, 4);
 
             switch (opcion) {
 
-                case 0:
-                    break;
-
                 case 1:
-                    arrayDe10RellenoPorUsuario();
+                    arrayDe10RellenoPares();
                     break;
 
                 case 2:
@@ -63,7 +60,7 @@ public class Arrays {
 
     }
 
-    public static void arrayDe10RellenoPorUsuario() {
+    public static void arrayDe10RellenoPares() {
 
         int[] array = new int[10];
 
@@ -96,7 +93,7 @@ public class Arrays {
 
         do {
 
-            num = IO_ES.leerInteger("Introduce un número para conocer cual es su posición en el array: ");
+            num = leerInteger("Introduce un número para conocer cual es su posición en el array: ");
             for (int j = 0; j < 10; j++) {
 
                 if (num == array[j]) {
@@ -120,7 +117,7 @@ public class Arrays {
         float suma = 0;
         float media;
 
-        tam = IO_ES.leerInteger("Introduce el tamaño del array que deseas crear: ");
+        tam = leerInteger("Introduce el tamaño del array que deseas crear: ");
         float[] array = new float[tam];
 
         for (int i = 0; i < 10; i++) {
@@ -155,21 +152,12 @@ public class Arrays {
         int num = 50;
         int mayores = 0;
         int menores = 0;
-        tam = IO_ES.leerInteger("Introduce el tamaño del array que deseas crear: ");
+        tam = leerInteger("Introduce el tamaño del array que deseas crear: ");
         int[] array = new int[tam];
 
         for (int i = 0; i < 10; i++) {
 
             array[i] = (int) Math.floor(Math.random() * 100);
-            /*if(array[i] <= 50){
-            
-                menores++;
-            
-            }else{
-            
-                mayores++;
-            
-            }*/
 
         }
         System.out.println("Los números contenidos en el array son: ");
@@ -177,7 +165,7 @@ public class Arrays {
 
             System.out.println(array[i] + "; ");
 
-            if (array[i] <= 50) {
+            if (array[i] < 50) { // Como no se indica, incluyo el 50 en los números mayores a 50.
 
                 menores++;
 

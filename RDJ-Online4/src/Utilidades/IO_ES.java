@@ -37,7 +37,7 @@ public class IO_ES {
         return num;
 
     }
-
+    
     public static int leerInteger(String mensaje) {
 
         Scanner teclado = new Scanner(System.in);
@@ -53,11 +53,36 @@ public class IO_ES {
 
             } catch (Exception e) {
 
-                //System.out.println("Error: " + e.getMessage());
+                System.out.println("El número introducido no es valido.");
                 teclado.nextLine();
             }
 
         } while (correcto == false);
+
+        return num;
+
+    }
+
+    public static int leerInteger(String mensaje, int min, int max) {
+
+        Scanner teclado = new Scanner(System.in);
+        int num = 0;
+        boolean correcto = false;
+
+        do {
+            System.out.println(mensaje);
+            try {
+
+                num = teclado.nextInt();
+                correcto = true;
+
+            } catch (Exception e) {
+
+                System.out.println("El número introducido no es valido.");
+                teclado.nextLine();
+            }
+
+        } while (correcto == false || num <= min || num >= max);
 
         return num;
 
