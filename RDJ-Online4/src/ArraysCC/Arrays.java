@@ -29,6 +29,7 @@ public class Arrays {
         int opcion;
         do {
 
+            System.out.println("----------- MENÚ -----------");
             System.out.println("1. Crear un array de 10 posiciones y rellenarlo con los 10 primeros números pares.");
             System.out.println("2. Crear un array de 10 posiciones con números aleatorios (entre 0 y 20) y se mostrará en la pantalla la posición del array que ocupe el número que indiques.");
             System.out.println("3. Crear un array de números decimales y mostrar la media, el mas alto y el mas bajo.");
@@ -66,7 +67,7 @@ public class Arrays {
 
         for (int i = 0; i < 10; i++) {
 
-            array[i] = 2 * i;
+            array[i] = 2 * i; // Contamos el número 0 como el primer número par.
 
         }
 
@@ -93,7 +94,7 @@ public class Arrays {
 
         do {
 
-            num = leerInteger("Introduce un número para conocer cual es su posición en el array: ");
+            num = leerInteger("Introduce un número para conocer cual es su posición en el array: ",0, 20);
             for (int j = 0; j < 10; j++) {
 
                 if (num == array[j]) {
@@ -113,16 +114,16 @@ public class Arrays {
 
     public static void arrayMasAltoyMasBajo() {
 
-        int tam = 0;
-        float suma = 0;
-        float media;
+        int tam;
+        double suma = 0;
+        double media;
 
         tam = leerInteger("Introduce el tamaño del array que deseas crear: ");
-        float[] array = new float[tam];
+        double[] array = new double[tam];
 
         for (int i = 0; i < 10; i++) {
 
-            array[i] = (float) Math.floor(Math.random());
+            array[i] = (double) Math.floor(Math.random());
             suma = suma + array[i];
 
         }
@@ -132,7 +133,7 @@ public class Arrays {
         for (int i = 0; i < tam - 1; i++) {
             for (int j = 1; j < (tam - i); j++) {
                 if (array[j - 1] > array[j]) {
-                    float aux_elem = array[j];
+                    double aux_elem = array[j];
                     array[j] = array[j - 1];
                     array[j - 1] = aux_elem;
                 }
