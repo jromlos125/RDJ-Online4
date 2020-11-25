@@ -18,19 +18,30 @@ public class CadenaCaracteres {
 
     public static void opcionesMenu() throws IOException {
 
-        String contenido = new String(Files.readAllBytes(Paths.get("Texto para lectura.txt")));
-        int i = 0;
+        try {
+
+            String texto = new String(Files.readAllBytes(Paths.get("ficheros/Texto para lectura.txt"))); // Creamos la variable texto que contiene todo el texto del documento.
+
+        } catch (IOException e) {
+
+            System.out.println("ERROR: " + e.getMessage());
+
+        }
+
+        int opcion = 0;
+        int contador = 0;
 
         do {
 
-            System.out.println("Selecciona una de las siguientes opciones del menú: ");
+            System.out.println("--------------- MENÚ ---------------");
             System.out.println("1. Contar palabra la $Hyperboss.");
             System.out.println("2. Sustituir la palabra $Hyperboss por COÑAZO y colorearla de azul.");
             System.out.println("3. Mostrar la primera frase que contenga la palabra $Hyperboss.");
             System.out.println("0. Salir del programa.");
-            i = IO_ES.leerInteger();
+            System.out.println("Selecciona una de las siguientes opciones del menú: ");
+            opcion = IO_ES.leerInteger();
 
-            switch (i) {
+            switch (opcion) {
 
                 case 0:
 
@@ -38,27 +49,35 @@ public class CadenaCaracteres {
 
                 case 1:
 
-                    int position,
-                     contador = 0;
-                    position = contenido.indexOf("$Hyperboss");
-                    while (position != -1) {
+                    for (int i = 0; i <= texto.length; i++) {
+
+                        i = texto.indexOf("$Hyperboss", i);
                         contador++;
-                        position = contenido.indexOf("$Hyperboss", position++);
 
                     }
-                    System.out.println("El número de veces que aparece la palabra $Hyperboss es: " + contador);
+
+                    System.out.println("La palabra $Hyperboss sale en el texto un total de : " + contador);
 
                 case 2:
 
-                    System.out.println(contenido);
+                    texto.replace("$Hyperboss", "COÑAZO");
+
+                    System.out.println(texto);
 
                 case 3:
 
-                    System.out.println("La primera frase que contiene la palabra $Hyperboss es: \n");
+                    int j = texto.indexOf("$Hyperboss");
+                    int primerPunto = texto.lastIndexOf(".", j);
+                    int ultimoPunto = texto.indexOf(".", j);
+                    String resultado = texto.substring((primerPunto + 1), (ultimoPunto + 1));
+
+                    System.out.println("La primera frase que contiene la palabra $Hyperboss es: \n" + resultado);
 
             }
 
-        } while (i == 0);
+            System.out.println("------------------------------------");
+
+        } while (opcion == 0);
 
     }
 

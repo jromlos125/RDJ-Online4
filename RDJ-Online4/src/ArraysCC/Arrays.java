@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ArraysCC;
 
 import static Utilidades.IO_ES.*;
@@ -94,7 +89,7 @@ public class Arrays {
 
         do {
 
-            num = leerInteger("Introduce un número para conocer cual es su posición en el array: ",0, 20);
+            num = leerInteger("Introduce un número para conocer cual es su posición en el array: ", 0, 20);
             for (int j = 0; j < 10; j++) {
 
                 if (num == array[j]) {
@@ -150,19 +145,18 @@ public class Arrays {
     public static void arrayMayoresyMenoresDe50() {
 
         int tam = 0;
-        int num = 50;
         int mayores = 0;
         int menores = 0;
         tam = leerInteger("Introduce el tamaño del array que deseas crear: ");
         int[] array = new int[tam];
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < tam; i++) {
 
             array[i] = (int) Math.floor(Math.random() * 100);
 
         }
         System.out.println("Los números contenidos en el array son: ");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < tam; i++) {
 
             System.out.println(array[i] + "; ");
 
