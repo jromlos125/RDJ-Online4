@@ -60,7 +60,10 @@ public class CadenaCaracteres {
 
                 case 2:
 
-                    texto.replace("$Hyperboss", "COÑAZO");
+                    String blue = "\033[34m";
+                    String reset = "\u001B[0m";
+
+                    texto.replace("$Hyperboss", (blue + "COÑAZO" + reset));
 
                     System.out.println(texto);
 

@@ -5,11 +5,12 @@
  */
 package Principal;
 
-import static Utilidades.ValidarCadenas.comprobarMatriculaAutomovil;
+import static Utilidades.ValidarCadenas.*;
 
 /**
  *
- * @author josel
+ * @author Jose Luis Romero De Los Ángeles
+ * @version 1.0
  */
 public class RDJOnline4 {
 
@@ -18,9 +19,16 @@ public class RDJOnline4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        char matricula[] = {'9', '1', '8', '2', 'A', 'R', 'Y'};
+
+        String matricula = "4532BDR";
+        String matricula1 = "43D3FDS";
+        String matricula2 = "B4562FTR";
+        String matricula3 = "Ñ4562DFS";
+
         comprobarMatriculaAutomovil(matricula);
+        comprobarMatriculaAutomovil(matricula1);
+        comprobarMatriculaCiclomotor(matricula2);
+        comprobarMatriculaCiclomotor(matricula3);
 
     }
 

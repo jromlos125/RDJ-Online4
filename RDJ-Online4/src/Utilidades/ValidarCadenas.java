@@ -6,72 +6,32 @@
 package Utilidades;
 
 /**
- * Contiene dos metodos estaticos que se encargan de validad cadenas de
- * caracteres que se les pasa por parametros y devolveran True.
+ * Contiene dos metodos estaticos que se encargan de validad las matriculas de
+ * coche y moto respectivamente que se les pasa por parametros y devolveran True
+ * si son correctas.
  *
  * @author Jose Luis Romero De Los Ángeles
  * @version: 1.0
  */
 public class ValidarCadenas {
 
-    public static boolean comprobarMatriculaAutomovil(char[] matricula) {
+    public static void comprobarMatriculaAutomovil(String matricula) {
 
-        boolean resultado = true;
+        boolean resultado;
 
-        if (matricula.length != 7) {
+        resultado = matricula.matches("^[0-9]{4}[B-D|F-H|J-N|P-T|V-Z]{3}$");
 
-            resultado = false;
-
-        } else {
-
-            for (int j = 4; j < 7; j++) {
-
-                if (matricula[j] == 'A' || matricula[j] == 'E' || matricula[j] == 'I' || matricula[j] == 'O' || matricula[j] == 'U' || matricula[j] == 'Ñ') {
-
-                    resultado = false;
-
-                    }
-
-                }
-            
-        }
-
-        return resultado;
+        System.out.println(resultado);
 
     }
 
+    public static void comprobarMatriculaCiclomotor(String matricula) {
 
-    public static boolean comprobarMatriculaCiclomotor(char[] matricula) {
+        boolean resultado;
 
-        boolean resultado = true;
+        resultado = matricula.matches("^[B-D|F-H|J-N|P-T|V-Z]{1}[0-9]{4}[B-D|F-H|J-N|P-T|V-Z]{3}$");
 
-        if (matricula.length != 8) {
-
-            resultado = false;
-
-        } else {
-
-            if (matricula[1] == 'A' || matricula[1] == 'E' || matricula[1] == 'I' || matricula[1] == 'O' || matricula[1] == 'U' || matricula[1] == 'Ñ') {
-
-                resultado = false;
-
-            } else {
-
-                for (int i = 5; i < 8; i++) {
-
-                    if (matricula[i] == 'A' || matricula[i] == 'E' || matricula[i] == 'I' || matricula[i] == 'O' || matricula[i] == 'U' || matricula[i] == 'Ñ') {
-
-                       resultado = false;
-
-                    }
-
-                }
-
-            }
-
-        }
-
-        return resultado;
+        System.out.println(resultado);
 
     }
 
