@@ -5,7 +5,8 @@
  */
 package Principal;
 
-import static Utilidades.ValidarCadenas.*;
+import static ArraysCC.CadenaCaracteres.*;
+import java.io.IOException;
 
 /**
  *
@@ -17,10 +18,10 @@ public class RDJOnline4 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
 
-        String matricula = "4532BDR";
+        /*String matricula = "4532BDR";
         String matricula1 = "43D3FDS";
         String matricula2 = "B4562FTR";
         String matricula3 = "Ñ4562DFS";
@@ -28,7 +29,8 @@ public class RDJOnline4 {
         comprobarMatriculaAutomovil(matricula);
         comprobarMatriculaAutomovil(matricula1);
         comprobarMatriculaCiclomotor(matricula2);
-        comprobarMatriculaCiclomotor(matricula3);
+        comprobarMatriculaCiclomotor(matricula3);*/
+        opcionesMenu();
 
     }
 

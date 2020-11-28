@@ -37,7 +37,7 @@ public class IO_ES {
         return num;
 
     }
-    
+
     public static int leerInteger(String mensaje) {
 
         Scanner teclado = new Scanner(System.in);
@@ -82,7 +82,7 @@ public class IO_ES {
                 teclado.nextLine();
             }
 
-        } while (correcto == false || num <= min || num >= max);
+        } while (correcto == false || num < min || num > max);
 
         return num;
 

@@ -1,6 +1,6 @@
 package ArraysCC;
 
-import Utilidades.IO_ES;
+import static Utilidades.IO_ES.*;
 import java.io.IOException;
 import java.nio.file.*;
 
@@ -16,56 +16,56 @@ import java.nio.file.*;
  */
 public class CadenaCaracteres {
 
-    public static void opcionesMenu() throws IOException {
+    public static void opcionesMenu() {
 
-        try {
-
-            String texto = new String(Files.readAllBytes(Paths.get("ficheros/Texto para lectura.txt"))); // Creamos la variable texto que contiene todo el texto del documento.
-
-        } catch (IOException e) {
-
-            System.out.println("ERROR: " + e.getMessage());
-
-        }
-
+        String texto = "";
         int opcion = 0;
         int contador = 0;
 
         do {
+
+            try { // Realizamos el 
+
+                texto = new String(Files.readAllBytes(Paths.get("ficheros/Texto para lectura.txt"))); // Rellenamos la variable texto que contiene todo el texto del documento.
+
+            } catch (IOException e) {
+
+                System.out.println("ERROR: " + e.getMessage());
+
+            }
 
             System.out.println("--------------- MENÚ ---------------");
             System.out.println("1. Contar palabra la $Hyperboss.");
             System.out.println("2. Sustituir la palabra $Hyperboss por COÑAZO y colorearla de azul.");
             System.out.println("3. Mostrar la primera frase que contenga la palabra $Hyperboss.");
             System.out.println("0. Salir del programa.");
-            System.out.println("Selecciona una de las siguientes opciones del menú: ");
-            opcion = IO_ES.leerInteger();
+            opcion = leerInteger("Seleccione una de las opciones del menú: ", 0, 3);
 
             switch (opcion) {
 
-                case 0:
-
-                    break;
-
                 case 1:
 
-                    for (int i = 0; i <= texto.length; i++) {
-
-                        i = texto.indexOf("$Hyperboss", i);
+                    String palabraaBuscar = "$Hyperboss";
+                    while (texto.indexOf(palabraaBuscar) > -1) {
+                        texto = texto.substring(texto.indexOf(palabraaBuscar) + palabraaBuscar.length(), texto.length());
                         contador++;
-
                     }
 
+                    System.out.println("------------------------------------");
                     System.out.println("La palabra $Hyperboss sale en el texto un total de : " + contador);
+                    break;
 
                 case 2:
 
                     String blue = "\033[34m";
                     String reset = "\u001B[0m";
 
-                    texto.replace("$Hyperboss", (blue + "COÑAZO" + reset));
+                    texto = texto.replace("$Hyperboss", (blue + "COÑAZO" + reset));
 
+                    System.out.println("Sustituimos la paralabra $Hyperboss por " + blue + "COÑAZO" + reset + " coloreandola de azul, el texto quedaría así: ");
+                    System.out.println("------------------------------------");
                     System.out.println(texto);
+                    break;
 
                 case 3:
 
@@ -74,13 +74,15 @@ public class CadenaCaracteres {
                     int ultimoPunto = texto.indexOf(".", j);
                     String resultado = texto.substring((primerPunto + 1), (ultimoPunto + 1));
 
+                    System.out.println("------------------------------------");
                     System.out.println("La primera frase que contiene la palabra $Hyperboss es: \n" + resultado);
+                    break;
 
             }
 
             System.out.println("------------------------------------");
 
-        } while (opcion == 0);
+        } while (opcion != 0);
 
     }
 
