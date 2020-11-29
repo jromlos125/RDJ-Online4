@@ -5,8 +5,10 @@
  */
 package Principal;
 
-import static ArraysCC.CadenaCaracteres.*;
-import java.io.IOException;
+import ArraysCC.*;
+import HundirLaFlota.*;
+import Utilidades.*;
+import static Utilidades.IO_ES.*;
 
 /**
  *
@@ -18,20 +20,44 @@ public class RDJOnline4 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         // TODO code application logic here
 
-        /*String matricula = "4532BDR";
-        String matricula1 = "43D3FDS";
-        String matricula2 = "B4562FTR";
-        String matricula3 = "Ñ4562DFS";
+        int opcion;
 
-        comprobarMatriculaAutomovil(matricula);
-        comprobarMatriculaAutomovil(matricula1);
-        comprobarMatriculaCiclomotor(matricula2);
-        comprobarMatriculaCiclomotor(matricula3);*/
-        opcionesMenu();
+        do {
+            System.out.println("----------------------- MENÚ PRINCIPAL -----------------------");
+            System.out.println("1.- Cadena de Caracteres.");
+            System.out.println("2.- Expresiones Regulares.");
+            System.out.println("3.- Ejercicio de Arrays.");
+            System.out.println("4.- Hundir la folta.");
+            System.out.println("0.- Salir.");
+            opcion = leerInteger("Seleccione una de las opciones anteriores: ", 0, 4);
 
+            switch (opcion) {
+
+                case 1:
+                    CadenaCaracteres.opcionesMenu();
+                    break;
+
+                case 2:
+                    ValidarCadenas.opcionesMenu();
+                    break;
+
+                case 3:
+                    Arrays.opcionesMenu();
+                    break;
+
+                case 4:
+                    HundirLaFlota.hundirLaFlota();
+                    break;
+
+                case 0:
+                    break;
+
+            }
+
+        } while (opcion != 0);
     }
 
 }

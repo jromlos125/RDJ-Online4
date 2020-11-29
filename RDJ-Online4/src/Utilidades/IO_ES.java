@@ -88,28 +88,54 @@ public class IO_ES {
 
     }
 
-    public static float leerReal(String mensaje) {
+    public static char leerChar(String mensaje, char max, char min) {
 
         Scanner teclado = new Scanner(System.in);
-        float num = 0;
+        char texto = ' ';
         boolean correcto = false;
 
         do {
-            System.out.println("Introduce un número real: ");
+
+            System.out.println(mensaje);
             try {
 
-                num = teclado.nextFloat();
+                texto = teclado.next().charAt(0);
                 correcto = true;
 
             } catch (Exception e) {
 
-                //System.out.println("Error: " + e.getMessage());
+                System.out.println("No se ha introducido un valor correcto.");
+
+            }
+
+        } while (correcto == false || texto < min || texto > max);
+
+        return texto;
+
+    }
+
+    public static String leerString(String mensaje) {
+
+        Scanner teclado = new Scanner(System.in);
+        String texto = "";
+        boolean correcto = false;
+
+        do {
+            System.out.println(mensaje);
+            try {
+
+                texto = teclado.nextLine();
+                correcto = true;
+
+            } catch (Exception e) {
+
+                System.out.println("La matrícula introducida no es valida.");
                 teclado.nextLine();
             }
 
         } while (correcto == false);
 
-        return num;
+        return texto;
 
     }
 

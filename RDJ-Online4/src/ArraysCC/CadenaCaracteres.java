@@ -19,12 +19,12 @@ public class CadenaCaracteres {
     public static void opcionesMenu() {
 
         String texto = "";
-        int opcion = 0;
+        int opcion;
         int contador = 0;
 
         do {
 
-            try { // Realizamos el 
+            try { // Realizamos el try dentro del bucle para que el texto se resetee cada vez que hacemos una de las opciones del menú.
 
                 texto = new String(Files.readAllBytes(Paths.get("ficheros/Texto para lectura.txt"))); // Rellenamos la variable texto que contiene todo el texto del documento.
 
@@ -34,7 +34,7 @@ public class CadenaCaracteres {
 
             }
 
-            System.out.println("--------------- MENÚ ---------------");
+            System.out.println("-------------------- MENÚ CADENA CARACTERES ------------------");
             System.out.println("1. Contar palabra la $Hyperboss.");
             System.out.println("2. Sustituir la palabra $Hyperboss por COÑAZO y colorearla de azul.");
             System.out.println("3. Mostrar la primera frase que contenga la palabra $Hyperboss.");
@@ -45,6 +45,7 @@ public class CadenaCaracteres {
 
                 case 1:
 
+                    contador = 0;
                     String palabraaBuscar = "$Hyperboss";
                     while (texto.indexOf(palabraaBuscar) > -1) {
                         texto = texto.substring(texto.indexOf(palabraaBuscar) + palabraaBuscar.length(), texto.length());
@@ -76,6 +77,9 @@ public class CadenaCaracteres {
 
                     System.out.println("------------------------------------");
                     System.out.println("La primera frase que contiene la palabra $Hyperboss es: \n" + resultado);
+                    break;
+
+                case 0:
                     break;
 
             }

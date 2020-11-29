@@ -24,7 +24,7 @@ public class Arrays {
         int opcion;
         do {
 
-            System.out.println("----------- MENÚ -----------");
+            System.out.println("------------------------- MENÚ ARRAYS ------------------------");
             System.out.println("1. Crear un array de 10 posiciones y rellenarlo con los 10 primeros números pares.");
             System.out.println("2. Crear un array de 10 posiciones con números aleatorios (entre 0 y 20) y se mostrará en la pantalla la posición del array que ocupe el número que indiques.");
             System.out.println("3. Crear un array de números decimales y mostrar la media, el mas alto y el mas bajo.");
@@ -50,6 +50,9 @@ public class Arrays {
                 case 4:
                     arrayMayoresyMenoresDe50();
                     break;
+
+                case 0:
+                    break;
             }
 
         } while (opcion != 0);
@@ -71,6 +74,8 @@ public class Arrays {
             System.out.print(array[i] + "; ");
 
         }
+
+        System.out.println("\n--------------------------------------------------------------");
 
     }
 
@@ -101,7 +106,7 @@ public class Arrays {
 
             }
 
-        } while (bandera = true);
+        } while (bandera != true);
 
         System.out.println("El número " + num + " introducido se encuentra en la posición " + posicion + " del array.");
 
@@ -116,21 +121,21 @@ public class Arrays {
         tam = leerInteger("Introduce el tamaño del array que deseas crear: ");
         double[] array = new double[tam];
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < tam; i++) {
 
-            array[i] = (double) Math.floor(Math.random());
+            array[i] = Math.floor(Math.random() * 1000); // Como no se indica, introducimos los valores aleatorios hasta el número 1000.
             suma = suma + array[i];
 
         }
 
-        media = suma / tam;
+        media = (suma / tam);
 
-        for (int i = 0; i < tam - 1; i++) {
-            for (int j = 1; j < (tam - i); j++) {
-                if (array[j - 1] > array[j]) {
-                    double aux_elem = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = aux_elem;
+        for (int j = 0; j < (tam - 1); j++) {
+            for (int k = 1; k < (tam - j); k++) {
+                if (array[k - 1] > array[k]) {
+                    double aux_elem = array[k];
+                    array[k] = array[k - 1];
+                    array[k - 1] = aux_elem;
                 }
 
             }
@@ -158,9 +163,9 @@ public class Arrays {
         System.out.println("Los números contenidos en el array son: ");
         for (int i = 0; i < tam; i++) {
 
-            System.out.println(array[i] + "; ");
+            System.out.print(array[i] + "; ");
 
-            if (array[i] < 50) { // Como no se indica, incluyo el 50 en los números mayores a 50.
+            if (array[i] <= 50) { // Como no se indica, incluyo el 50 en los números menores a 50.
 
                 menores++;
 
@@ -172,7 +177,7 @@ public class Arrays {
 
         }
 
-        System.out.println("Hay un total de " + mayores + " números mayores que 50.");
+        System.out.println("\nHay un total de " + mayores + " números mayores que 50.");
         System.out.println("Y un total de " + menores + " números menores o iguales a 50.");
 
     }
