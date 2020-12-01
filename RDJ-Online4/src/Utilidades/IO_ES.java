@@ -63,6 +63,40 @@ public class IO_ES {
 
     }
 
+    public static int leerIntegerMayor0(String mensaje) {
+
+        Scanner teclado = new Scanner(System.in);
+        int num = 0;
+        boolean correcto = false;
+
+        do {
+            System.out.println(mensaje);
+            try {
+
+                num = teclado.nextInt();
+
+                if (num > 0) {
+
+                    correcto = true;
+
+                } else {
+
+                    System.out.println("El número introducido no es valido.");
+
+                }
+
+            } catch (Exception e) {
+
+                System.out.println("El número introducido no es valido.");
+                teclado.nextLine();
+            }
+
+        } while (correcto == false);
+
+        return num;
+
+    }
+
     public static int leerInteger(String mensaje, int min, int max) {
 
         Scanner teclado = new Scanner(System.in);
@@ -88,7 +122,41 @@ public class IO_ES {
 
     }
 
-    public static char leerChar(String mensaje, char max, char min) {
+    public static int leerIntegerMayor0(String mensaje, int min, int max) {
+
+        Scanner teclado = new Scanner(System.in);
+        int num = 0;
+        boolean correcto = false;
+
+        do {
+            System.out.println(mensaje);
+            try {
+
+                num = teclado.nextInt();
+
+                if (num > 0) {
+
+                    correcto = true;
+
+                } else {
+
+                    System.out.println("El número introducido no es valido.");
+
+                }
+
+            } catch (Exception e) {
+
+                System.out.println("El número introducido no es valido.");
+                teclado.nextLine();
+            }
+
+        } while (correcto == false || num < min || num > max);
+
+        return num;
+
+    }
+
+    public static char leerChar(String mensaje, char min, char max) {
 
         Scanner teclado = new Scanner(System.in);
         char texto = ' ';

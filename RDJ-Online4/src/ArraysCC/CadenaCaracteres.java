@@ -35,7 +35,7 @@ public class CadenaCaracteres {
             }
 
             System.out.println("-------------------- MENÚ CADENA CARACTERES ------------------");
-            System.out.println("1. Contar palabra la $Hyperboss.");
+            System.out.println("1. Contar la palabra $Hyperboss.");
             System.out.println("2. Sustituir la palabra $Hyperboss por COÑAZO y colorearla de azul.");
             System.out.println("3. Mostrar la primera frase que contenga la palabra $Hyperboss.");
             System.out.println("0. Salir del programa.");

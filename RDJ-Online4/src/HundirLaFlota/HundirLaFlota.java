@@ -277,12 +277,16 @@ public class HundirLaFlota {
 
         final char FILA = 'K';
         final int COLUMNA = 10;
+        boolean terminado = false;
         int puntosenemigos = 24;
         int puntos = 24;
+        int x;
+        char y;
         boolean golpeado = false;
         boolean bandera1 = false;
+        boolean vacia = true;
 
-        System.out.println("\n----------------------- HUNDIR LA FLOTA ---------------------");
+        System.out.println("\n------------------------ HUNDIR LA FLOTA ---------------------");
 
         // Creamos los tableros que visualizará el jugador.
         String[][] tableroEnemigo;
@@ -316,8 +320,8 @@ public class HundirLaFlota {
 
         // Los rellenamos con los barcos.
         colocarBarcos(tableroAliado, 5, 2);
-        //colocarBarcos(tableroAliado, 3, 3);
-        //colocarBarcos(tableroAliado, 1, 5);
+        colocarBarcos(tableroAliado, 3, 3);
+        colocarBarcos(tableroAliado, 1, 5);
         colocarBarcos(tableroEnemigoBarcos, 5, 2);
         colocarBarcos(tableroEnemigoBarcos, 3, 3);
         colocarBarcos(tableroEnemigoBarcos, 1, 5);
@@ -327,14 +331,28 @@ public class HundirLaFlota {
             do {
                 mostrarTablero(tableroEnemigo, tableroAliado);
                 golpeado = false;
-                // Solicitamos al usuario que nos indique las coordenadas donde desea disparar su bomba.
-                int x = leerInteger("Indica las coordenadas X para lanzar la bomba: ", 0, 9);
-                char y = leerChar("Indica las coordenadas Y para lanzar la bomba: ", 'A', 'J');
 
+                do {
+                    // Solicitamos al usuario que nos indique las coordenadas donde desea disparar su bomba.
+                    x = leerInteger("Indica las coordenadas X (horizontales) para lanzar la bomba: ", 0, 9);
+                    y = leerChar("Indica las coordenadas Y (verticales) para lanzar la bomba: ", 'A', 'J');
+
+                    if ("X".equals(tableroEnemigoBarcos[y][x]) || "*".equals(tableroEnemigoBarcos[y][x])) {
+
+                        vacia = false;
+
+                    } else {
+
+                        vacia = true;
+
+                    }
+
+                } while (vacia == false);
                 // Comprobamos si la bomba ha golpeado en algun barco o en agua.
+
                 if (" ".equals(tableroEnemigoBarcos[y][x])) {
 
-                    System.out.println("¡Agua!");
+                    System.out.println("¡Tu disparo ha golpeado en el agua!");
                     tableroEnemigo[y][x] = "X"; // Representa que se ha golpeado agua.
 
                 } else {
@@ -343,10 +361,15 @@ public class HundirLaFlota {
                     tableroEnemigo[y][x] = "*"; // Representa que ha golpeado un barco.
                     puntosenemigos--;
                     golpeado = true;
+                    if (puntosenemigos <= 0) {
+
+                        terminado = true;
+
+                    }
 
                 }
 
-            } while (golpeado == true);
+            } while (golpeado == true || terminado == true);
 
             do {
                 int xEnemiga;
@@ -358,7 +381,7 @@ public class HundirLaFlota {
                     xEnemiga = (int) (Math.random() * 10);
                     yEnemiga = (char) ((Math.random() * (75 - 65)) + 65);
 
-                    if (" ".equals(tableroAliado[yEnemiga][xEnemiga]) || "*".equals(tableroAliado[yEnemiga][xEnemiga]) || "X".equals(tableroAliado[yEnemiga][xEnemiga])) {
+                    if ("*".equals(tableroAliado[yEnemiga][xEnemiga]) || "X".equals(tableroAliado[yEnemiga][xEnemiga])) {
 
                         bandera1 = true;
 
@@ -372,23 +395,31 @@ public class HundirLaFlota {
 
                 if (" ".equals(tableroAliado[yEnemiga][xEnemiga])) {
 
-                    System.out.println("El enemigo ha golpeado agua.");
+                    System.out.println("El contrincante ha golpeado en el agua.");
                     tableroAliado[yEnemiga][xEnemiga] = "X";
 
                 } else {
 
                     System.out.println("El contrincante ha golpeado uno de tus barcos. ");
-                    tableroEnemigo[yEnemiga][xEnemiga] = "*"; // Representa que ha golpeado un barco.
+                    tableroAliado[yEnemiga][xEnemiga] = "*"; // Representa que ha golpeado un barco.
                     puntos--;
                     golpeado = true;
+                    if (puntos <= 0) {
+
+                        terminado = true;
+
+                    }
 
                 }
 
-            } while (golpeado == true);
+            } while (golpeado == true || terminado == true);
 
-        } while (puntos > 0 || puntosenemigos > 0);
+            System.out.println("La puntuciación va: ");
+            System.out.println("Tu equipo: " + puntos + " - " + puntosenemigos + ": Equipo Enemigo.");
 
-        if (puntos == 0) {
+        } while (terminado == false);
+
+        if (puntos <= 0) {
 
             System.out.println("Lo sentimos. Has perdido. Vuelve a intentarlo.");
 

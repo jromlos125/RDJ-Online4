@@ -39,7 +39,7 @@ public class ValidarCadenas {
 
                     } else {
 
-                        System.out.println("La matrícula introducida no es correcta. Recuerda que el formato es 4 números seguidos de 3 letras mayusculas que no sean vocales ni la Ñ.");
+                        System.out.println("La matrícula introducida no es correcta. Recuerda que el formato es 4 números seguidos de 3 letras mayúsculas que no sean vocales ni la Ñ.");
 
                     }
 
@@ -54,8 +54,8 @@ public class ValidarCadenas {
                     } else {
 
                         System.out.println("La matrícula introducida no es correcta.");
-                        System.out.println("Recuerda que el formato es 1 letra mayuscula, seguida de 4 números y despues 3 letras mayusculas más.");
-                        System.out.println("Las letras mayusculas no pueden ser ni vocales ni la Ñ.");
+                        System.out.println("Recuerda que el formato es 1 letra mayuscula, seguida de 4 números y después 3 letras mayúsculas más.");
+                        System.out.println("Las letras mayúsculas no pueden ser ni vocales ni la Ñ.");
 
                     }
 

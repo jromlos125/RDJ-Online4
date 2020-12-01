@@ -30,7 +30,7 @@ public class RDJOnline4 {
             System.out.println("1.- Cadena de Caracteres.");
             System.out.println("2.- Expresiones Regulares.");
             System.out.println("3.- Ejercicio de Arrays.");
-            System.out.println("4.- Hundir la folta.");
+            System.out.println("4.- Hundir la flota.");
             System.out.println("0.- Salir.");
             opcion = leerInteger("Seleccione una de las opciones anteriores: ", 0, 4);
 
@@ -58,6 +58,7 @@ public class RDJOnline4 {
             }
 
         } while (opcion != 0);
+
     }
 
 }

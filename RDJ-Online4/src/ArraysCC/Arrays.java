@@ -27,8 +27,8 @@ public class Arrays {
             System.out.println("------------------------- MENÚ ARRAYS ------------------------");
             System.out.println("1. Crear un array de 10 posiciones y rellenarlo con los 10 primeros números pares.");
             System.out.println("2. Crear un array de 10 posiciones con números aleatorios (entre 0 y 20) y se mostrará en la pantalla la posición del array que ocupe el número que indiques.");
-            System.out.println("3. Crear un array de números decimales y mostrar la media, el mas alto y el mas bajo.");
-            System.out.println("4. Crear un array de valores aleatorios entre 0 y 100. Mostrando su contenido e indicando cuantos son mayores de 50 y cuantos menores.");
+            System.out.println("3. Crear un array de números decimales y mostrar la media, el más alto y el más bajo.");
+            System.out.println("4. Crear un array de valores aleatorios entre 0 y 100. Mostrando su contenido e indicando cuántos números son mayores de 50 y cuántos son menores.");
             System.out.println("0. Salir del programa.");
 
             opcion = leerInteger("Selecciona una de las opciones del menú anterior: ", 0, 4);
@@ -102,6 +102,10 @@ public class Arrays {
                     bandera = true;
                     posicion = j;
 
+                } else {
+
+                    System.out.println("El número introducido no se encuentra en el array.");
+
                 }
 
             }
@@ -118,7 +122,7 @@ public class Arrays {
         double suma = 0;
         double media;
 
-        tam = leerInteger("Introduce el tamaño del array que deseas crear: ");
+        tam = leerIntegerMayor0("Introduce el tamaño del array que deseas crear: ");
         double[] array = new double[tam];
 
         for (int i = 0; i < tam; i++) {
@@ -152,7 +156,7 @@ public class Arrays {
         int tam = 0;
         int mayores = 0;
         int menores = 0;
-        tam = leerInteger("Introduce el tamaño del array que deseas crear: ");
+        tam = leerIntegerMayor0("Introduce el tamaño del array que deseas crear: ");
         int[] array = new int[tam];
 
         for (int i = 0; i < tam; i++) {
