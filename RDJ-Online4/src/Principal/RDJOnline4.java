@@ -11,6 +11,9 @@ import Utilidades.*;
 import static Utilidades.IO_ES.*;
 
 /**
+ * Tenemos un menú que da lugar a poder acceder al resto de clases dependiendo
+ * que opcion se pulse de 1 a 4. Este menú se repetirá hasta que el usuario
+ * pulse el 0.
  *
  * @author Jose Luis Romero De Los Ángeles
  * @version 1.0

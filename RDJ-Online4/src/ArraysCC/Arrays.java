@@ -69,13 +69,7 @@ public class Arrays {
 
         }
 
-        System.out.println("Los valores del array creado son: ");
-        for (int i = 0; i < 10; i++) {
-            System.out.print(array[i] + "; ");
-
-        }
-
-        System.out.println("\n--------------------------------------------------------------");
+        mostrarArray(array, array.length);
 
     }
 
@@ -86,11 +80,7 @@ public class Arrays {
         int posicion = 0;
         int num;
 
-        for (int i = 0; i < 10; i++) {
-
-            array[i] = (int) Math.floor(Math.random() * 20);
-
-        }
+        array = rellenarArrayAleatorio(array, array.length, 20, 0); // Rellenamos el array con números entre 0 y 20.
 
         do {
 
@@ -101,12 +91,19 @@ public class Arrays {
 
                     bandera = true;
                     posicion = j;
+                    j = 11; // Para que salga del bucle for cuando encuentre la posición.
 
                 } else {
 
-                    System.out.println("El número introducido no se encuentra en el array.");
+                    bandera = false;
 
                 }
+
+            }
+
+            if (bandera == false) {
+
+                System.out.println("El número introducido no se encuentra en el Array creado.");
 
             }
 
@@ -127,8 +124,8 @@ public class Arrays {
 
         for (int i = 0; i < tam; i++) {
 
-            array[i] = Math.floor(Math.random() * 1000); // Como no se indica, introducimos los valores aleatorios hasta el número 1000.
-            suma = suma + array[i];
+            array[i] = Math.random();
+            suma = suma + array[i]; // Mientras recorremos rellenando el array, vamos sumando los números que vamos añadiendo.
 
         }
 
@@ -159,15 +156,13 @@ public class Arrays {
         tam = leerIntegerMayor0("Introduce el tamaño del array que deseas crear: ");
         int[] array = new int[tam];
 
-        for (int i = 0; i < tam; i++) {
+        array = rellenarArrayAleatorio(array, tam, 100, 0);
 
-            array[i] = (int) Math.floor(Math.random() * 100);
-
-        }
         System.out.println("Los números contenidos en el array son: ");
-        for (int i = 0; i < tam; i++) {
 
-            System.out.print(array[i] + "; ");
+        mostrarArray(array, tam);
+
+        for (int i = 0; i < tam; i++) {
 
             if (array[i] <= 50) { // Como no se indica, incluyo el 50 en los números menores a 50.
 
@@ -183,6 +178,31 @@ public class Arrays {
 
         System.out.println("\nHay un total de " + mayores + " números mayores que 50.");
         System.out.println("Y un total de " + menores + " números menores o iguales a 50.");
+
+    }
+
+    public static int[] rellenarArrayAleatorio(int array[], int tam, int max, int min) {
+
+        for (int i = 0; i < tam; i++) {
+
+            array[i] = (int) (Math.random() * ((max + 1) - min) + min);
+
+        }
+
+        return array;
+
+    }
+
+    public static void mostrarArray(int array[], int tam) {
+
+        System.out.println("Los números contenidos en el array son: ");
+        for (int i = 0; i < tam; i++) {
+
+            System.out.print(array[i] + "; ");
+
+        }
+
+        System.out.println("\n--------------------------------------------------------------");
 
     }
 

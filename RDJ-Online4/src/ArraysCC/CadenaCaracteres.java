@@ -58,8 +58,8 @@ public class CadenaCaracteres {
 
                 case 2:
 
-                    String blue = "\033[34m";
-                    String reset = "\u001B[0m";
+                    String blue = "\033[34m"; // Pone el texto a partir de este código en color azul.
+                    String reset = "\u001B[0m"; // Resetea el color del texto que se muestra por pantalla y lo pone en color por defecto.
 
                     texto = texto.replace("$Hyperboss", (blue + "COÑAZO" + reset));
 
@@ -70,10 +70,10 @@ public class CadenaCaracteres {
 
                 case 3:
 
-                    int j = texto.indexOf("$Hyperboss");
-                    int primerPunto = texto.lastIndexOf(".", j);
-                    int ultimoPunto = texto.indexOf(".", j);
-                    String resultado = texto.substring((primerPunto + 1), (ultimoPunto + 1));
+                    int j = texto.indexOf("$Hyperboss"); // Localizamos el sitio donde se encuentra la palabra en el texto.
+                    int primerPunto = texto.lastIndexOf(".", j); // Localizamos el punto anterior al sitio donde se encuentra la palabra en el texto.
+                    int ultimoPunto = texto.indexOf(".", j); // Localizamos el punto siguiente al sitio donde se encuentra la palabra en el texto.
+                    String resultado = texto.substring((primerPunto + 1), (ultimoPunto + 1)); // Extraemos una subcadena desde el punto anterior a la palabra hasta el punto siguiente.
 
                     System.out.println("------------------------------------");
                     System.out.println("La primera frase que contiene la palabra $Hyperboss es: \n" + resultado);

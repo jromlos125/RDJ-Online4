@@ -63,7 +63,7 @@ public class IO_ES {
 
     }
 
-    public static int leerIntegerMayor0(String mensaje) {
+    public static int leerIntegerMayor0(String mensaje) { // Método que se asegura que el número que se lea por pantalla sea siempre mayor que 0. Utilizado para solicitar el tamaño de arrays.
 
         Scanner teclado = new Scanner(System.in);
         int num = 0;
@@ -122,41 +122,7 @@ public class IO_ES {
 
     }
 
-    public static int leerIntegerMayor0(String mensaje, int min, int max) {
-
-        Scanner teclado = new Scanner(System.in);
-        int num = 0;
-        boolean correcto = false;
-
-        do {
-            System.out.println(mensaje);
-            try {
-
-                num = teclado.nextInt();
-
-                if (num > 0) {
-
-                    correcto = true;
-
-                } else {
-
-                    System.out.println("El número introducido no es valido.");
-
-                }
-
-            } catch (Exception e) {
-
-                System.out.println("El número introducido no es valido.");
-                teclado.nextLine();
-            }
-
-        } while (correcto == false || num < min || num > max);
-
-        return num;
-
-    }
-
-    public static char leerChar(String mensaje, char min, char max) {
+    public static char leerChar(String mensaje, char min, char max) { // Leemos el primer caracter de una lista que se pide por pantalla.
 
         Scanner teclado = new Scanner(System.in);
         char texto = ' ';
